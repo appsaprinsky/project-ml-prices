@@ -48,14 +48,12 @@ for ticker1 in tickers:
         merged_df[f'{ticker1}_{ticker2}_Coint'] = rolling_coint(merged_df[ticker1], merged_df[ticker2], window_size_coint)
 
 merged_df.dropna(inplace=True)
-merged_df['Y'] = np.where(merged_df['META'].shift(-1) > merged_df['META'], 1, 0)
+merged_df['Y'] = np.where(merged_df[SELECTED_Y].shift(-1) > merged_df[SELECTED_Y], 1, 0)
 merged_df = merged_df[:-1]
 X_train = merged_df.loc[merged_df["Date"]<TRAIN_TEST_DATE_DIVISION].loc[:, (merged_df.columns != 'Y') & (merged_df.columns != 'Date')].reset_index(drop=True)
 X_test = merged_df.loc[merged_df["Date"]>=TRAIN_TEST_DATE_DIVISION].loc[:, (merged_df.columns != 'Y') & (merged_df.columns != 'Date')].reset_index(drop=True)
 y_train = merged_df.loc[merged_df["Date"]<TRAIN_TEST_DATE_DIVISION]['Y'].reset_index(drop=True)
 y_test = merged_df.loc[merged_df["Date"]>=TRAIN_TEST_DATE_DIVISION]['Y'].reset_index(drop=True)
-
-
 
 dtrain = xgb.DMatrix(X_train, label=y_train)
 dtest = xgb.DMatrix(X_test, label=y_test)
