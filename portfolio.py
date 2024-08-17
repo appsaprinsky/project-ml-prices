@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 tickers = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA', 'META']
-data = yf.download(tickers, start='2020-01-01', end='2023-01-01')['Adj Close']
+data = yf.download(tickers, start='2020-01-01', end='2024-08-01')['Adj Close']
 print(data.head())
 returns = data.pct_change().dropna() # calculate daily returns
 print(returns.head())
