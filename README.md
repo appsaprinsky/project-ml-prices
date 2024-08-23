@@ -1,7 +1,10 @@
 # project-ml-prices
 
 
-# Portfolio Optimization Using Python
+# Portfolio Optimization using 2 methods
+
+### Table: Shares and Optimized Weights for Minimized Risk
+
 Here's the table with the tickers and the optimized weights:
 
 | Ticker | Optimized Weight |
@@ -34,6 +37,39 @@ These weights represent the proportion of the total investment that should be al
 
 
 This project demonstrates how to optimize a portfolio of stocks by maximizing the Sharpe Ratio using mean-variance optimization. The code uses historical stock data retrieved from Yahoo Finance, calculates daily returns, and applies optimization techniques to determine the best portfolio weights.
+
+To create a table with the shares and their corresponding optimized weights for the minimized risk (rounded to two decimal points), we can structure it similarly to how we did for the Sharpe ratio optimization. This table will present the tickers and the weights that minimize portfolio risk:
+
+### Table: Shares and Optimized Weights for Minimized Risk
+
+| Ticker | Optimized Weight |
+|--------|------------------|
+| AAPL   | 0.00             |
+| AMZN   | 0.07             |
+| BABA   | 0.04             |
+| BAC    | 0.00             |
+| DIS    | 0.00             |
+| GOOGL  | 0.00             |
+| HD     | 0.00             |
+| JNJ    | 0.39             |
+| JPM    | 0.00             |
+| KO     | 0.20             |
+| MA     | 0.00             |
+| META   | 0.00             |
+| MSFT   | 0.00             |
+| NFLX   | 0.03             |
+| NVDA   | 0.00             |
+| PEP    | 0.00             |
+| PG     | 0.20             |
+| TSLA   | 0.00             |
+| UNH    | 0.00             |
+| V      | 0.00             |
+| XOM    | 0.06             |
+
+This distribution is optimized to minimize portfolio volatility, likely favoring stocks with historically lower volatility and stable returns, thus aligning with risk-averse investment strategies.
+
+
+# Portfolio Optimization Using Python
 
 ## 1. Data Retrieval and Preprocessing
 
