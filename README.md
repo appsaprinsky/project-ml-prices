@@ -21,7 +21,7 @@ print(data.head())
 ### Calculate Daily Returns
 
 The daily returns are calculated as:
-```scss
+```
 \[
 \text{Daily Returns} = \frac{P_t - P_{t-1}}{P_{t-1}}
 \]
