@@ -1,7 +1,5 @@
 # project-ml-prices
 
-Got it! Here's the response fully formatted for a `README.md` file, detailing the portfolio optimization process using Python:
-
 ```markdown
 # Portfolio Optimization Using Python
 
@@ -18,6 +16,7 @@ tickers = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA', 'META']
 data = yf.download(tickers, start='2020-01-01', end='2024-08-01')['Adj Close']
 print(data.head())
 ```
+
 
 ### Calculate Daily Returns
 
@@ -224,3 +223,4 @@ print(f"Optimized Sharpe Ratio: {optimized_sharpe_ratio:.2f}")
 7. **Optimization Constraints**: \( \sum_{i=1}^{n} w_i = 1 \) and \( 0 \leq w_i \leq 1 \)
 
 These formulas and code components help optimize the portfolio by adjusting the weights of each asset to maximize the risk-adjusted return (Sharpe Ratio).
+```
