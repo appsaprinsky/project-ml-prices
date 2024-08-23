@@ -1,6 +1,6 @@
 # project-ml-prices
 
-```markdown
+
 # Portfolio Optimization Using Python
 
 This project demonstrates how to optimize a portfolio of stocks by maximizing the Sharpe Ratio using mean-variance optimization. The code uses historical stock data retrieved from Yahoo Finance, calculates daily returns, and applies optimization techniques to determine the best portfolio weights.
@@ -21,7 +21,7 @@ print(data.head())
 ### Calculate Daily Returns
 
 The daily returns are calculated as:
-
+```markdown
 \[
 \text{Daily Returns} = \frac{P_t - P_{t-1}}{P_{t-1}}
 \]
@@ -29,7 +29,7 @@ The daily returns are calculated as:
 Where:
 - \( P_t \) is the price at time \( t \).
 - \( P_{t-1} \) is the price at time \( t-1 \).
-
+```
 ```python
 returns = data.pct_change().dropna()
 print(returns.head())
@@ -223,4 +223,4 @@ print(f"Optimized Sharpe Ratio: {optimized_sharpe_ratio:.2f}")
 7. **Optimization Constraints**: \( \sum_{i=1}^{n} w_i = 1 \) and \( 0 \leq w_i \leq 1 \)
 
 These formulas and code components help optimize the portfolio by adjusting the weights of each asset to maximize the risk-adjusted return (Sharpe Ratio).
-```
+
