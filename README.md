@@ -2,6 +2,36 @@
 
 
 # Portfolio Optimization Using Python
+Here's the table with the tickers and the optimized weights:
+
+| Ticker | Optimized Weight |
+|--------|------------------|
+| AAPL   | 0.00             |
+| AMZN   | 0.00             |
+| BABA   | 0.00             |
+| BAC    | 0.00             |
+| DIS    | 0.00             |
+| GOOGL  | 0.00             |
+| HD     | 0.00             |
+| JNJ    | 0.00             |
+| JPM    | 0.00             |
+| KO     | 0.00             |
+| MA     | 0.00             |
+| META   | 0.00             |
+| MSFT   | 0.00             |
+| NFLX   | 0.00             |
+| NVDA   | 0.52             |
+| PEP    | 0.00             |
+| PG     | 0.08             |
+| TSLA   | 0.11             |
+| UNH    | 0.10             |
+| V      | 0.00             |
+| XOM    | 0.19             |
+
+### Notes:
+These weights represent the proportion of the total investment that should be allocated to each stock in order to maximize the Sharpe Ratio based on the given optimization strategy.
+
+
 
 This project demonstrates how to optimize a portfolio of stocks by maximizing the Sharpe Ratio using mean-variance optimization. The code uses historical stock data retrieved from Yahoo Finance, calculates daily returns, and applies optimization techniques to determine the best portfolio weights.
 
