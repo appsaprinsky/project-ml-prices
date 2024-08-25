@@ -2,14 +2,12 @@ from ib_insync import *
 import pandas as pd
 
 opt_portfolio = pd.read_csv("portfolio/output/optimised_portfolio.csv")
-
 optimal_weights = list(opt_portfolio['Weights'])
 tickers = list(opt_portfolio['Tickets'])
-
 total_wealth_stocks = 100
-order_optimal = [int(num * 100) for num in optimal_weights]
-
+order_optimal = [int(num * total_wealth_stocks) for num in optimal_weights]
 print(order_optimal)
+
 ib = IB()
 ib.connect('127.0.0.1', 4002, clientId=1)
 for we in range(len(order_optimal)):
