@@ -2,7 +2,7 @@ from ib_insync import *
 
 # Connect to IB API
 ib = IB()
-ib.connect('127.0.0.1', 4002, clientId=1)  # Ensure the port matches the TWS/IB Gateway API settings
+ib.connect('127.0.0.1', 4002, clientId=3)  # Ensure the port matches the TWS/IB Gateway API settings
 
 # Check account balance (Optional)
 account = ib.accountSummary()

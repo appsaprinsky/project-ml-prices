@@ -7,27 +7,24 @@ import numpy as np
 DATE_START = '2020-01-01'
 DATE_END = '2024-08-23'
 tickers = [
-    'AAPL',  # Apple Inc.
-    'MSFT',  # Microsoft Corp.
-    'GOOGL', # Alphabet Inc. (Google)
-    'AMZN',  # Amazon.com Inc.
-    'TSLA',  # Tesla Inc.
-    'META',  # Meta Platforms Inc. (Facebook)
-    'NVDA',  # NVIDIA Corporation
-    'JNJ',   # Johnson & Johnson
-    'V',     # Visa Inc.
-    'PG',    # Procter & Gamble Co.
-    'JPM',   # JPMorgan Chase & Co.
-    'UNH',   # UnitedHealth Group Inc.
-    'HD',    # Home Depot Inc.
-    'MA',    # Mastercard Inc.
-    'DIS',   # The Walt Disney Company
-    'NFLX',  # Netflix Inc.
-    'BABA',  # Alibaba Group Holding Ltd.
-    'XOM',   # Exxon Mobil Corporation
-    'BAC',   # Bank of America Corp.
-    'KO',    # The Coca-Cola Company
-    'PEP'    # PepsiCo Inc.
+    'SAP.DE',   # SAP SE (Germany, XETRA)
+    'SIE.DE',   # Siemens AG (Germany, XETRA)
+    'ASML.AS',  # ASML Holding N.V. (Netherlands, Euronext Amsterdam)
+    'VOW3.DE',  # Volkswagen AG (Germany, XETRA)
+    'AIR.PA',   # Airbus SE (France, Euronext Paris)
+    'BNP.PA',   # BNP Paribas S.A. (France, Euronext Paris)
+    'HSBA.L',   # HSBC Holdings Plc (UK, London Stock Exchange)
+    'OR.PA',    # L'Oréal S.A. (France, Euronext Paris)
+    'NESN.SW',  # Nestlé S.A. (Switzerland, SIX Swiss Exchange)
+    'NOVN.SW',  # Novartis AG (Switzerland, SIX Swiss Exchange)
+    'UNA.AS',   # Unilever N.V. (Netherlands, Euronext Amsterdam)
+    'BAS.DE',   # BASF SE (Germany, XETRA)
+    'SAN.PA',   # Sanofi (France, Euronext Paris)
+    'BARC.L',   # Barclays Plc (UK, London Stock Exchange)
+    'AZN.L',    # AstraZeneca Plc (UK, London Stock Exchange)
+    'AD.AS',    # Koninklijke Ahold Delhaize N.V. (Netherlands, Euronext Amsterdam)
+    'BMW.DE',   # Bayerische Motoren Werke AG (Germany, XETRA)
+    'ENEL.MI'   # Enel S.p.A. (Italy, Borsa Italiana)
 ]
 data = yf.download(tickers, start=DATE_START, end=DATE_END)['Adj Close']
 print(data.head())
@@ -78,22 +75,8 @@ print(f"Optimized Portfolio Return: {optimized_return:.2%}")
 print(f"Optimized Portfolio Volatility: {optimized_volatility:.2%}")
 print(f"Optimized Sharpe Ratio: {optimized_sharpe_ratio:.2f}")
 
-
-''' OUTPUT
-Shares: Index(['AAPL', 'AMZN', 'BABA', 'BAC', 'DIS', 'GOOGL', 'HD', 'JNJ', 'JPM', 'KO',
-       'MA', 'META', 'MSFT', 'NFLX', 'NVDA', 'PEP', 'PG', 'TSLA', 'UNH', 'V',
-       'XOM'],
-      dtype='object', name='Ticker')
-Optimized Weights: [2.46056003e-17 0.00000000e+00 2.54785000e-16 0.00000000e+00
- 0.00000000e+00 0.00000000e+00 1.52857093e-16 1.88556352e-16
- 2.23407263e-16 9.78095214e-17 0.00000000e+00 6.76893180e-17
- 0.00000000e+00 9.57046358e-17 5.23611926e-01 8.48722741e-17
- 8.23132679e-02 1.10725656e-01 9.55664883e-02 1.37156800e-17
- 1.87782662e-01]
-Optimized Portfolio Return: 56.28%
-Optimized Portfolio Volatility: 36.46%
-Optimized Sharpe Ratio: 1.54
-'''
+opt_portfolio = pd.DataFrame({"Tickets":list(data.columns), "Weights":optimized_weights})
+opt_portfolio.to_csv("portfolio/output/optimised_portfolio.csv")
 
 ############# Optimize the portfolio Based on Minimising Risk#############
 optimized = minimize(portfolio_volatility, initial_weights, args=(returns,), method='SLSQP', bounds=bounds, constraints=constraints)
@@ -117,19 +100,5 @@ print(f"Optimized MRisk Portfolio Return: {optimized_return:.2%}")
 print(f"Optimized MRisk Portfolio Volatility: {optimized_volatility:.2%}")
 print(f"Optimized MRisk Sharpe Ratio: {optimized_sharpe_ratio:.2f}")
 
-
-''' OUTPUT
-Shares: Index(['AAPL', 'AMZN', 'BABA', 'BAC', 'DIS', 'GOOGL', 'HD', 'JNJ', 'JPM', 'KO',
-       'MA', 'META', 'MSFT', 'NFLX', 'NVDA', 'PEP', 'PG', 'TSLA', 'UNH', 'V',
-       'XOM'],
-      dtype='object', name='Ticker')
-Optimized MRisk Weights Risks: [1.39116279e-17 7.35610607e-02 4.13681710e-02 2.87280739e-17
- 0.00000000e+00 0.00000000e+00 0.00000000e+00 3.86117884e-01
- 1.58270079e-17 1.98006450e-01 2.01627767e-18 0.00000000e+00
- 3.80326309e-18 3.29228697e-02 1.33557656e-17 1.75676360e-17
- 2.04537222e-01 2.68067342e-18 0.00000000e+00 0.00000000e+00
- 6.34863415e-02]
-Optimized MRisk Portfolio Return: 10.54%
-Optimized MRisk Portfolio Volatility: 17.13%
-Optimized MRisk Sharpe Ratio: 0.62
-'''
+mrisk_portfolio = pd.DataFrame({"Tickets":list(data.columns), "Weights":optimized_weights})
+mrisk_portfolio.to_csv("portfolio/output/MRisk_optimised_portfolio.csv")

@@ -1,8 +1,11 @@
 from ib_insync import *
+import pandas as pd
 
-# AAPL       AMZN      GOOGL        META        MSFT       TSLA
-optimal_weights = [3.23330409e-01, 0.00000000e+00, 1.36204768e-01, 9.10729825e-18, 1.89222494e-01, 3.51242328e-01]
-tickers = ['AAPL', 'AMZN', 'GOOGL', 'META', 'MSFT', 'TSLA']
+opt_portfolio = pd.read_csv("portfolio/output/optimised_portfolio.csv")
+
+optimal_weights = list(opt_portfolio['Weights'])
+tickers = list(opt_portfolio['Tickets'])
+
 total_wealth_stocks = 100
 order_optimal = [int(num * 100) for num in optimal_weights]
 
@@ -15,7 +18,7 @@ for we in range(len(order_optimal)):
     order_num = order_optimal[we]
     if order_num <= 0:
         continue
-    stock = Stock(ticker, 'SMART', 'USD')
+    stock = Stock(ticker, 'SMART', 'EUR')#'USD'
     # Request market data to ensure the stock details are correct (Optional)
     ib.qualifyContracts(stock)
     print(f"Contract Details: {stock}")

@@ -2,10 +2,11 @@ from ib_insync import *
 
 # Connect to IB API
 ib = IB()
-ib.connect('127.0.0.1', 4002, clientId=1)  # Ensure the port matches the TWS/IB Gateway API settings
+ib.connect('127.0.0.1', 4002, clientId=2)  # Ensure the port matches the TWS/IB Gateway API settings
 
 # Get all positions in the account
 positions = ib.positions()
+print(positions)
 
 # Check and print positions
 if positions:
