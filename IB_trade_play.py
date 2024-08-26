@@ -13,7 +13,7 @@ ib.connect('127.0.0.1', 4002, clientId=1)
 ticker = 'AAPL'
 order_num = 1
 
-stock = Stock('SIE', 'XETRA', 'EUR') 
+stock = Stock('ENEL', 'SMART', 'EUR') 
 # Request market data to ensure the stock details are correct (Optional)
 ib.qualifyContracts(stock)
 print(f"Contract Details: {stock}")

@@ -1,5 +1,11 @@
 # project-ml-prices
 
+# TO DO
+## 1) Backtesting
+Check the portfolio value if only whole shares are traded
+## 2) Current Account trade info
+
+
 
 # Portfolio Optimization using 2 methods
 
