@@ -1,0 +1,1 @@
+#### The Idea will be to predict prices Going up OR going Down

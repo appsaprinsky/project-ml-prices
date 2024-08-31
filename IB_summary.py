@@ -6,6 +6,7 @@ ib.connect('127.0.0.1', 4002, clientId=3)  # Ensure the port matches the TWS/IB 
 
 # Check account balance (Optional)
 account = ib.accountSummary()
+print(f'All together:{account}')
 print("Account Summary:")
 for summary in account:
     print(f'{summary.tag}: {summary.value} {summary.currency}')

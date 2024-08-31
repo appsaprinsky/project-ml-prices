@@ -13,12 +13,12 @@ tickers = {
 }
 
 tickers = {
-    'AD.AS': 1,  # Example: 1 share of Apple
-    'ASML': 1,  # Example: 2 shares of Microsoft
+    'AD.AS': 8,  # Example: 1 share of Apple
+    # 'ASML': 1,  # Example: 2 shares of Microsoft
     'BNP.PA': 1,  # Example: 1 share of Google
     'SAN': 1,  # Example: 1 share of Apple
     'SAP': 1,  # Example: 2 shares of Microsoft
-    'UNA.AS': 1  # Example: 1 share of Google
+    'UNA.AS': 3  # Example: 1 share of Google
 }
 
 START_DATE = '2021-01-01'
