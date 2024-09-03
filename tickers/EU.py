@@ -42,8 +42,22 @@ tickers_IB = [
     'ENEL'   # Enel S.p.A. (Italy, Borsa Italiana)
 ]
 
+tickers_IB_to_YH = {
 
-
+    'SAP'     : 'SAP.DE',   
+    'SIE'     : 'SIE.DE',   
+    'ASML'    : 'ASML.AS',  
+    'VOW3'    : 'VOW3.DE',  
+    'AIR'     : 'AIR.PA',   
+    'BNP'     : 'BNP.PA',   
+    'OR'      : 'OR.PA',    
+    'UNA'     : 'UNA.AS',   
+    'BAS'     : 'BAS.DE',   
+    'SAN'     : 'SAN.PA',  
+    'AD'      : 'AD.AS',   
+    'BMW'     : 'BMW.DE',   
+    'ENEL'    : 'ENEL.MI'  
+}
 
 # tickers = [
 #     'SAP',    # SAP SE (Germany, XETRA)
